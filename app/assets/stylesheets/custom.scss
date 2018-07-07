@@ -1,0 +1,19 @@
+
+// header
+.before_login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 30px;
+  //border-bottom: 1px solid $color_blue;
+}
+
+.logo {
+  height: 50px;
+
+img  {
+   width: auto;
+   max-height: 50px;
+  }
+}
