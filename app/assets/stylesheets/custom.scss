@@ -165,6 +165,102 @@ aside {
   }
 }
 
+
+.nav {
+  width: 750px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav li {
+  position: relative;
+  list-style: none;
+}
+.nav li a {
+  display: block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color: #5e5e5e;
+  font-size: 14px;
+  line-height: 2.8;
+  //background: #9fb7d4;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.nav > li:hover > a {/*layer-1*/
+  color: #2f83b4;
+  text-decoration : underline;
+}
+.nav > li li:hover > a {/*layer-2*/
+  color: #2f83b4;
+  text-decoration : underline;
+}
+.nav li ul {
+  top: 40px;
+  left: -40px;
+  position: relatives;
+}
+.nav li ul li {
+  overflow: hidden;
+  height: 0;
+}
+
+.nav li:hover > ul > li {
+  overflow: visible;
+  height: 40px;
+}
+  .nav li ul li ul {
+    top: 0;
+    left: 110px;
+  }
+  .nav li ul li ul:before {/*layer-2▷*/
+    position: absolute;
+    content: "";
+    top: 15px;
+    left: 30px;
+    border: 5px solid transparent;
+    border-left: 5px solid #fff;
+  }
+  .nav li ul li ul li:hover > a {/*layer-3*/
+    color: pink;
+    background: #2f83b4;
+  }
+  .nav li ul li ul.left {
+    top: 0;
+    left: -190px;
+  }
+  .nav li ul li ul.left:before,/*layer-2-left▷*/
+  .nav li ul li ul li ul.left:before {/*layer-3-left▷*/
+    position: absolute;
+    content: "";
+    top: 15px;
+    left: 190px;
+    border: 5px solid transparent;
+    border-right: 5px solid #fff;
+  }
+  .nav li ul li ul.left li:hover > a {/*layer-2-left*/
+    color: pink;
+    background: #afc6e2;
+  }
+  .nav li ul li ul li ul.left li:hover > a {/*layer-3-left*/
+    color: purple;
+    background: #afc6e2;
+  }
+.content {
+  width: 750px;
+  height: 200px;
+  background: #eee;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+
 /* forms */
 #error_explanation {
   color: red;

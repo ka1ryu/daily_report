@@ -1,5 +1,23 @@
 <header class="before_login">
   <div class="logo">
-    <%= link_to(image_tag('logo.png'), '/') %>
+    <%= image_tag('logo.png')%>
   </div>
+
+  <nav>
+      <ul class="nav">
+        <% if logged_in? %>
+          <li class="under"><%= link_to "日報を見る", '#' %></li>
+          <li class="under">
+            <%= link_to "My page", current_user %>
+            <ul>
+              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to "Log out", logout_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+
 </header>
