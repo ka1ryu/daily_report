@@ -270,7 +270,27 @@ aside {
   }
 }
 
-/*.field_with_errors {
-  @extend .has-error;
+.alert-success {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #2b81b3;
+    text-align: center;
+    color: white;
+    p {
+    margin: 0;
+    padding: 0;
+  }
 }
-*/
+
+.alert-danger {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: #f16272;
+    text-align: center;
+    color: white;
+    p {
+    margin: 0;
+    padding: 0;
+  }
+}
