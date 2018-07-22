@@ -260,6 +260,21 @@ aside {
   box-sizing: border-box;
 }
 
+.checkbox-inline {
+
+  span {
+    width:300px;
+    height:50px;
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
 
 /* forms */
 #error_explanation {
@@ -293,4 +308,154 @@ aside {
     margin: 0;
     padding: 0;
   }
+}
+
+.user-list {
+  margin: 3em auto;
+  padding: 0 1em;
+  max-width: 800px;
+}
+
+ul.user, ol.user {
+  padding: 0;
+  position: relative;
+}
+
+.user li {
+  border-left: solid 6px #2c81b3;
+  background: #fafafa;
+  margin-bottom: 3px;
+ 	line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;
+}
+
+.user a {
+  text-decoration : none;
+  color: #5e5e5e;
+  font-size: 14px;
+}
+
+.user > li:hover > a {/*layer-1*/
+  color: #2f83b4;
+  text-decoration : underline;
+}
+.user > li li:hover > a {/*layer-2*/
+  color: #2f83b4;
+  text-decoration : underline;
+}
+
+//----------  responsive breakpoints
+//------------------------------------------------------------------------------
+@mixin breakpoint ($value) {
+  @if $value == 'phone' {
+    @media only screen and (min-width: 120px) and (max-width: 767px) { @content; }
+  } @else if $value == 'tablet' {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) { @content; }
+  } @else if $value == 'touch' {
+    @media only screen and (min-width: 120px) and (max-width: 1024px) { @content; }
+  } @else if $value == 'desktop' {
+    @media only screen and (min-width: 1025px) { @content; }
+  } @else {
+    @media only screen and (max-width: $value) { @content; }
+  }
+}
+
+// Colors
+$white: #fff;
+$black: #000;
+$grey: #5e5e5e;
+$grey-dark: #2b2b2b;
+$grey-light: #eee;
+$green: #2f83b4;
+$blue: #017ac7;
+
+// Transition
+$duration: 400ms;
+$easing: ease;
+
+
+//----------  pagination
+//------------------------------------------------------------------------------
+.pagination-wrapper {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination {
+	display: inline-block;
+	height: 50px;
+	padding: 0 15px;
+
+	background-color: #fafafa;
+
+	@include breakpoint(1199px) {
+		height: 50px;
+		padding: 0 10px;
+
+	}
+}
+
+.page-numbers {
+	display: block;
+	padding: 0 15px;
+	float: left;
+	transition: $duration $easing;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	line-height: 50px;
+    a {
+    text-decoration: none;
+    color: $grey;
+  }
+    a:hover{
+      color: #2f83b4;
+      text-decoration : underline;
+    }
+	&.current {
+		background-color: $green;
+		color: $white;
+	}
+	&.prev:hover,
+	&.next:hover {
+		background-color: transparent;
+    color: $white;
+	}
+
+	@include breakpoint(1199px) {
+		padding: 0 15px;
+		font-size: 14px;
+		line-height: 50px;
+	}
+
+	@include breakpoint(touch) {
+		padding: 0 14px;
+		display: none;
+
+		&:nth-of-type(2) {
+			position: relative;
+			padding-right: 50px;
+
+			&::after {
+				content: '...';
+				position: absolute;
+				font-size: 25px;
+				top: 0;
+				left: 45px;
+			}
+		}
+
+		&:nth-child(-n+3),
+		&:nth-last-child(-n+3) {
+			display: block;
+		}
+
+		&:nth-last-child(-n+4) {
+			padding-right: 14px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
 }
