@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    @users = User.page(params[:page]).per(20)
+    @users = User.where(activated:  true).page(params[:page])
   end
 
   def new
@@ -18,9 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in(@user)
-      flash[:success] = "Welcome Nippo tools"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:success] = "Please check your email to activate your account."
+      redirect_to root_url and return unless @user.activated?
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flsash[:success] = "Profile Updated!"
+      flash[:success] = "Profile Updated!"
       redirect_to @user
     else
       render 'edit'
