@@ -217,7 +217,7 @@ aside {
     top: 0;
     left: 110px;
   }
-  .nav li ul li ul:before {/*layer-2▷*/
+  .nav li ul li ul:before {/*layer-2â–·*/
     position: absolute;
     content: "";
     top: 15px;
@@ -233,8 +233,8 @@ aside {
     top: 0;
     left: -190px;
   }
-  .nav li ul li ul.left:before,/*layer-2-left▷*/
-  .nav li ul li ul li ul.left:before {/*layer-3-left▷*/
+  .nav li ul li ul.left:before,/*layer-2-leftâ–·*/
+  .nav li ul li ul li ul.left:before {/*layer-3-leftâ–·*/
     position: absolute;
     content: "";
     top: 15px;
@@ -458,4 +458,97 @@ $easing: ease;
 			}
 		}
 	}
+}
+
+//日報の表示
+.dailyreport {
+  min-height:60px;
+  height:auto !important;
+  height:60px;
+}
+
+.timestamp {
+  color: #2f83b4;
+   display: block;
+}
+
+//homeデザイン
+#wrapper {
+  width: 100%;
+}
+#container {
+  display: flex;
+  overflow: hidden;
+  margin: 10px auto 0 auto;
+  background: #e9e9e9;
+}
+#container #column1 {/*カラム1*/
+  background: #fafafa;
+  padding: 10px;
+  margin-left: 5%;
+}
+#container #column2 {/*カラム2*/
+  background: #fafafa;
+  padding: 10px;
+}
+  #container p,
+  #container #column1 p,
+  #container #column2 p {
+    padding: 10px;
+  }
+  #container p .txt-pc {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+
+#container {
+  display: flex;
+  width: 1200px;
+}
+#container #column1 {/*カラム1*/
+  flex: auto;
+  order: 2;
+}
+#container #column2 {/*カラム2*/
+  flex: 0 0 300px;
+  order: 1;
+}
+  #container p .txt-pc {
+    display: inline-block;
+  }
+  #container p .txt-sp {
+    display: none;
+  }
+}
+
+textarea#dailyreport_content {
+        width: 100%;
+        min-height: 150px;
+        border: 2px solid #e9e9e9;
+        background-color: #fafafa;
+    }
+
+.button-panel-post {
+      margin: 2em 0 0;
+      width: 100%;
+}
+
+.button-panel-post .button {
+      background: #8c8c8c;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      height: 50px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.2em;
+      letter-spacing: 0.05em;
+      text-align: center;
+      text-transform: uppercase;
+      transition: background 0.3s ease-in-out;
+      width: 100%;
+}
+
+.button-panel-post .button:hover {
+  background: #666;
 }

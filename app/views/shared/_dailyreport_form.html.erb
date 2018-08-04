@@ -1,0 +1,10 @@
+<p>このカラムの横幅は<span class="txt-sp">100%です。</span><span class="txt-pc">可変幅です。</span></p>
+<%= form_for(@dailyreport) do |f| %>
+  <%= render 'shared/error_message', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "■Badnews\n\n■本日の業務\n\n■本日の振り返り" %>
+  </div>
+  <div class="button-panel-post">
+  <%= f.submit "Post", class: "button" %>
+  </div>
+<% end %>

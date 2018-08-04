@@ -1,0 +1,26 @@
+<% if logged_in? %>
+<div id="wrapper">
+      <%= form_for(@dailyreport) do |f| %>
+      <%= render 'shared/error_message', object: f.object %>
+  <div id="container">
+    <div id="column1">
+      <h4>日報の登録</h4>
+      <p>このカラムの横幅は<span class="txt-sp">100%です。</span><span class="txt-pc">可変幅です。</span></p>
+        <div class="field">
+          <%= f.text_area :content, placeholder: "■Badnews\n\n■本日の業務\n\n■本日の振り返り" %>
+        </div>
+        <div class="button-panel-post">
+        <%= f.submit "Post", class: "button" %>
+        </div>
+      <% end %>
+    </div>
+    <div id="column2">
+      <h4>今期の目標</h4>
+      <%= render 'shared/goal' %>
+    </div>
+  </div>
+</div>
+<% else %>
+<h1>おはよう</h1>
+
+<% end %>

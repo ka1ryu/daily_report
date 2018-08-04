@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
+      @dailyreports = @user.dailyreports.page(params[:page]).per(10)
   end
 
   def create
@@ -51,13 +52,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please login"
-        redirect_to login_url
-      end
-    end
 
     def correct_user
       @user = User.find(params[:id])

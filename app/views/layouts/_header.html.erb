@@ -1,12 +1,14 @@
 <header class="before_login">
   <div class="logo">
-    <%= image_tag('logo.png')%>
+    <%= link_to root_url do %>
+      <%= image_tag('logo.png')%>
+    <% end %>
   </div>
 
   <nav>
       <ul class="nav">
         <% if logged_in? %>
-          <li class="under"><%= link_to "日報を見る", '#' %></li>
+          <li class="under"><%= link_to "日報を見る", reports_all_path %></li>
           <li class="under">
             <%= link_to "My page", current_user %>
             <ul>

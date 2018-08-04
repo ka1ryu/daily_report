@@ -1,0 +1,9 @@
+<li id="dailyreport-<%= report.id %>">
+  <span class="description"><%= report.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(report.created_at) %> ago.
+  </span>
+  <% if current_user?(micropost.user) %>
+      <%= link_to "delete", micropost, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+</li>
