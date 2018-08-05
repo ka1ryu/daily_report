@@ -20,7 +20,9 @@
             </span>
             <span class="description"><%= report.content %></span><br>
             <% if current_user?(report.user) %>
-          <%= link_to "delete", "/dailyreports/#{report.id}", method: :delete,
+            <%= link_to "edit", "/dailyreports/#{report.id}/edit" %>
+
+            <%= link_to "delete", "/dailyreports/#{report.id}", method: :delete,
                                            data: { confirm: "You sure?" } %>
                                            <% end %>
           </li>

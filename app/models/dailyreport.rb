@@ -5,7 +5,7 @@ class Dailyreport < ApplicationRecord
 
   validates :user_id, presence: true,uniqueness: {
     scope: :user_id,
-    conditions: -> { where('created_at >= ?', 1.days.ago) },
+    conditions: -> { where("DATE(created_at) = '#{Date.today}'") },
   }
   validates :content, presence: true, length: {maximum: 1000}
 end

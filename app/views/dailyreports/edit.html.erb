@@ -1,3 +1,14 @@
 <body>
-  
+  <% provide(:button_text,'Update your report') %>
+
+  <%= form_for(@dailyreport) do |f| %>
+  <%= render 'shared/error_message', object: f.object %>
+    <div class="form-item">
+      <% f.label :content %>
+      <%= f.text_field :content, :placeholder => "Please update your content" %>
+    </div>
+    <div class="button-panel">
+      <%= f.submit yield(:button_text), class: "button" %>
+    </div>
+    <% end %>
 </body>
