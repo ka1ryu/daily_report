@@ -1,20 +1,42 @@
 <body>
-  <div class="user-list">
-    <% if @feed_items.any? %>
-    <h3>Dailyreports (<%= @feed_items.count %>)</h3>
-    <ul class="user">
-      <% @feed_items.each do |item| %>
-      <li class="dailyreport">
-        <span class="timestamp">
-          <%= User.find_by(id: item.user_id).name %>
-        </span>
-        <span class="description"><%= item.content %></span>
-      </li>
+  <div id="wrapper-report">
+    <div id="container-report">
+      <div id="column1-report">
+        <% if @feed_items.any? %>
+          <div class="user-list">
+            <h3>Dailyreports (<%= @feed_items.count %>)</h3>
+            <ul class="user">
+              <% @feed_items.each do |item| %>
+              <li class="dailyreport">
+                <span class="timestamp">
+                  <%= User.find_by(id: item.user_id).name %>
+                </span>
+                <span class="description"><%= item.content %></span>
+              </li>
+                <% end %>
+             </ul>
+          </div>
+          <div class="pagination-wrapper">
+            <%= paginate @feed_items %>
+          </div>
+        <% else %>
+        <div class="no-report">
+          <h2><%= @msg %></h2>
+        </div>
         <% end %>
-     </ul>
+      </div>
+      <div id="column2-report">
+        <div class="date_field">
+          <form action="/reports/all" method="get">
+            <h3>Callendar</h3>
+            <input type="date" name="date" class="date-box">
+            <div class="report-btn">
+              <input type="submit", value="submit" class="button">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="pagination-wrapper">
-    <%= paginate @feed_items %>
-  </div>
-  <% end %>
+
 </body>

@@ -1,7 +1,7 @@
 class DailyreportsController < ApplicationController
   before_action :logged_in_user, only:[:create,:edit, :destroy, :update]
   before_action :correct_user, only: [:edit,:destroy, :update]
-
+  
   def create
     @dailyreport = current_user.dailyreports.build(dailyreport_params)
     if @dailyreport.save
