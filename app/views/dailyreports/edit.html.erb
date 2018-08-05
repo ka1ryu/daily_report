@@ -3,6 +3,7 @@
 
   <%= form_for(@dailyreport) do |f| %>
   <%= render 'shared/error_message', object: f.object %>
+  <div class="user-list">
     <div class="form-item">
       <% f.label :content %>
       <%= f.text_field :content, :placeholder => "Please update your content" %>
@@ -11,4 +12,5 @@
       <%= f.submit yield(:button_text), class: "button" %>
     </div>
     <% end %>
+  </div>
 </body>
